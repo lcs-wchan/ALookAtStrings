@@ -4,7 +4,7 @@
  
  There are many languages worldwide. Swift fully supports the [Unicode standard](https://www.unicode.org/standard/standard.html), meaning strings may contain Latin characters, like *A*, or symbols from Mandarin Chinese, like *你好*, or even Emoji, such as: 🤦🏻‍♂️. These *glyphs* are represented using different amounts of internal storage in a computer. As a result, handling strings in Swift requires a bit more knowledge than in other programming languages that do not fully support the Unicode standard.
  
-Below are some short examples that build upon the [information presented in section 2.1 of App Development with Swift](ibooks://assetid/1465002990#page(114)) that may prove useful.
+ Below are some short examples that build upon the [information presented in section 2.1 of App Development with Swift](ibooks://assetid/1465002990#page(114)) that may prove useful.
  */
 
 import Foundation
@@ -65,8 +65,8 @@ print("The string built from the loop is: \(builtStringFromLoop)")
 print("==========================")
 
 /*:
-## Accessing individual characters from a string
-
+ ## Accessing individual characters from a string
+ 
  There is a [set of nice examples in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID494) that show how to access parts of a string.
  
  Let's consider the following string:
@@ -76,8 +76,8 @@ print("==========================")
  This is how the string would be represented internally, using indices:
  
  ![string-by-index](string-by-index.png)
-
-*/
+ 
+ */
 // Here's a string to work with
 let school = "Lakefield College School"
 print(school)
@@ -140,42 +140,57 @@ print("Second last character is: \(secondLast)")
  ![name](name.png)
  */
 // This will separate the output from the examples above from your work
-print("===== Exercise 1 begins =====")
-
-
-
+print("===== Exercise 1 begins =====") 
+let name = "Will"
+for dllm in name {
+print (dllm)
+}
 /*:
-### Exercise 2
-
-Consider the phrase stored in the constant `aQuestion` below.
-
-Write code, in *two different ways*, that prints the single character 在 to the Debug area.
-
-*/
+ ### Exercise 2
+ 
+ Consider the phrase stored in the constant `aQuestion` below.
+ 
+ Write code, in *two different ways*, that prints the single character 在 to the Debug area.
+ 
+ */
 // This will separate the output from the code above from your work for this question
 print("===== Exercise 2 begins =====")
 
 // Create a string
-let aQuestion = "请问现在几点了?"
+let aQuestion = "請問現在幾點?"
 
 // Write code to complete the exercise below...
 
 /*:
-### Exercise 3
-
-A challenge.
-
-The [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher#/media/File:Caesar_cipher_left_shift_of_3.svg) is a basic encryption technique that involves shifting letters left or right within the alphabet.
+ ### Exercise 3
  
-Say that you wish to encrypt the word `pen` using a *rightward shift of three characters*.
+ A challenge.
+ 
+ The [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher#/media/File:Caesar_cipher_left_shift_of_3.svg) is a basic encryption technique that involves shifting letters left or right within the alphabet.
+ 
+ Say that you wish to encrypt the word `pen` using a *rightward shift of three characters*.
  
  Write code below that encrypts the word using a Caesar cipher.
  
  HINT: Think about using Unicode scalar values, performing arithmetic, and then creating new characters.
-
-*/
+ 
+ */
 
 // Create the starting phrase
-let plainText = "pen"
+let plainText = "CAB"
 
 // Encrypt the starting phrase
+for scalar in plainText.unicodeScalars {
+    print(scalar)
+    print(scalar.value)
+    
+    // shift each scalar value by 3
+    let newScalarValue = scalar.value + 3
+     
+    // attempt to convert the scalar value to an actual scalar
+    if let newScalar = UnicodeScalar(newScalarValue){
+        print(newScalarValue)
+        print(newScalar)
+       
+}
+}
